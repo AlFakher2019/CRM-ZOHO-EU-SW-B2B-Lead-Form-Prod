@@ -59,7 +59,7 @@
               <div class="zf-clearBoth"></div>
             </li>
             <!-- benefits tab -->
-            <div class="account-benefits-box">
+            <div class="account-benefits-box" id="benefits-box">
               <h3>Account Creation Benefits</h3>
               <div class="benefits-list">
                 <ul>
@@ -270,7 +270,9 @@
                   </div>
                   <div class="zfCol">
                     <div class="zf-tempFrmWrapper zf-large">
-                      <label class="zf-labelName"> Business Type </label>
+                      <label class="zf-labelName"> Business Type 
+                        <em class="zf-important"> *</em>
+                      </label>
                       <div class="zf-tempContDiv">
                         <select
                           class="zf-form-sBox"
@@ -296,73 +298,50 @@
                   </div>
                 </div>
               </div>
-              <div class="zf-tempFrmWrapper zf-termsandCond">
-                <label class="zf-labelName"> </label>
+
+               <div class="zf-tempFrmWrapper zf-decesion">
                 <div class="zf-tempContDiv">
-                  <div class="zf-termsContainer">
-                    <div class="zf-termsAccept">
-                      <input
-                        class="zf-checkBoxType zf-flLeft"
-                        name="TermsConditions"
-                        type="checkbox"
-                      /><label class="zf-descFld">
-                        <div>
-                          By creating an account, I agree to the
-                          <a
-                            href="http://#"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            >Terms and Conditions</a
-                          >, and
-                          <a
-                            href="http://#"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            >Privacy Policy</a
-                          >.<br />
-                        </div>
-                      </label>
-                    </div>
-                  </div>
+                  <input
+                    type="checkbox"
+                    checktype="c1"
+                    id="DecisionBox1"
+                    name="DecisionBox1"
+                  /><label for="DecisionBox1" class="zf-labelName">
+                    Yes, keep me up to date on news and exclusive offers on
+                    products including tobacco.
+                  </label>
+                  <p
+                    id="DecisionBox1_error"
+                    class="zf-errorMessage"
+                    style="display: none"
+                  >
+                    Please Enter Correct Details
+                  </p>
                 </div>
-                <p
-                  id="TermsConditions_error"
-                  class="zf-errorMessage"
-                  elname="error"
-                  style="display: none"
-                >
-                  Please Enter Correct Details
-                </p>
-                <div class="clearBoth"></div>
+                <div class="zf-clearBoth"></div>
               </div>
-              <div class="zf-tempFrmWrapper zf-termsandCond">
-                <label class="zf-labelName"> </label>
+              <div class="zf-tempFrmWrapper zf-decesion">
                 <div class="zf-tempContDiv">
-                  <div class="zf-termsContainer">
-                    <div class="zf-termsAccept">
-                      <input
-                        class="zf-checkBoxType zf-flLeft"
-                        name="TermsConditions1"
-                        type="checkbox"
-                      /><label class="zf-descFld">
-                        <div>
-                          Yes, kepp me up to date on news and exclusive offers
-                          on products including tobacco.<br />
-                        </div>
-                      </label>
-                    </div>
-                  </div>
+                  <input
+                    type="checkbox"
+                    checktype="c1"
+                    id="DecisionBox2"
+                    name="DecisionBox2"
+                  /><label for="DecisionBox2" class="zf-labelName">
+                    By creating an account, I agree to the Terms and Conditions,
+                    and Privacy Policy.
+                  </label>
+                  <p
+                    id="DecisionBox2_error"
+                    class="zf-errorMessage"
+                    style="display: none"
+                  >
+                    Please Enter Correct Details
+                  </p>
                 </div>
-                <p
-                  id="TermsConditions1_error"
-                  class="zf-errorMessage"
-                  elname="error"
-                  style="display: none"
-                >
-                  Please Enter Correct Details
-                </p>
-                <div class="clearBoth"></div>
+                <div class="zf-clearBoth"></div>
               </div>
+ 
 
               <button
                 type="button"
@@ -633,7 +612,7 @@
               <div class="zftwoColumn zfMultiColGrid">
                 <div class="zfCol">
                   <div class="zf-tempFrmWrapper zf-decesion">
-                    <div class="zf-tempContDiv">
+                    <div class="zf-tempContDiv billing-check">
                       <input
                         type="checkbox"
                         checktype="c1"
@@ -1033,36 +1012,66 @@
     <script type="text/javascript">var dateAndMonthRegexFormateArray = zf_SetDateAndMonthRegexBasedOnDateFormate('dd-MMM-yyyy');
         var zf_DateRegex = new RegExp(dateAndMonthRegexFormateArray[0]);
         var zf_MonthYearRegex = new RegExp(dateAndMonthRegexFormateArray[1]);
-        var zf_MandArray = ["Name_First", "Name_Last", "Email", "SingleLine14", "SingleLine15", "SingleLine", "Dropdown1", "SingleLine2", "SingleLine4", "SingleLine6", "SingleLine1", "SingleLine7", "Dropdown4", "SingleLine9", "SingleLine10", "SingleLine12", "SingleLine8", "SingleLine13", "FileUpload", "FileUpload1"];
+        var zf_MandArray = ["Name_First", "Name_Last", "Email", "SingleLine14", "SingleLine15", "SingleLine", "Dropdown", "Dropdown1", "SingleLine2", "SingleLine4", "SingleLine6", "SingleLine1", "SingleLine7", "Dropdown4", "SingleLine9", "SingleLine10", "SingleLine12", "SingleLine8", "SingleLine13", "FileUpload", "FileUpload1"];
         var zf_FieldArray = ["Name_First", "Name_Last", "Email", "SingleLine14", "SingleLine15", "SingleLine", "Dropdown", "TermsConditions", "TermsConditions1", "Dropdown1", "SingleLine2", "SingleLine4", "SingleLine6", "SingleLine1", "SingleLine3", "SingleLine5", "SingleLine7", "DecisionBox", "Dropdown4", "SingleLine9", "SingleLine10", "SingleLine12", "SingleLine8", "SingleLine11", "SingleLine13", "SingleLine16", "FileUpload", "SingleLine17", "FileUpload1"];
         var isSalesIQIntegrationEnabled = false;
         var salesIQFieldsArray = [];
 
-        //address toggle
+         document.addEventListener("DOMContentLoaded", function () {
+
+    const billing = {
+        addressType: document.forms.form["Dropdown1"],
+        city: document.forms.form["SingleLine2"],
+        street1: document.forms.form["SingleLine4"],
+        street2: document.forms.form["SingleLine5"],
+        state: document.forms.form["SingleLine6"],
+        country: document.forms.form["SingleLine1"],
+        zip: document.forms.form["SingleLine7"],
+    };
+
+    const shipping = {
+        addressType: document.forms.form["Dropdown4"],
+        city: document.forms.form["SingleLine9"],
+        street1: document.forms.form["SingleLine10"],
+        street2: document.forms.form["SingleLine11"],
+        state: document.forms.form["SingleLine12"],
+        country: document.forms.form["SingleLine8"],
+        zip: document.forms.form["SingleLine13"],
+    };
+
+    function syncShippingWithBilling() {
+        if (document.getElementById("DecisionBox").checked) {
+            shipping.addressType.value = billing.addressType.value;
+            shipping.city.value = billing.city.value;
+            shipping.street1.value = billing.street1.value;
+            shipping.street2.value = billing.street2.value;
+            shipping.state.value = billing.state.value;
+            shipping.country.value = billing.country.value;
+            shipping.zip.value = billing.zip.value;
+        }
+    }
+
+    
+    ["input", "change"].forEach(eventType => {
+        [
+            billing.addressType,
+            billing.city,
+            billing.street1,
+            billing.street2,
+            billing.state,
+            billing.country,
+            billing.zip
+        ].forEach(field => {
+            field.addEventListener(eventType, syncShippingWithBilling);
+        });
+    });
+
+    
+            //address toggle
         document.getElementById("DecisionBox").addEventListener("change", function () {
             const isChecked = this.checked;
 
-            // Billing fields
-            const billing = {
-                addressType: document.forms.form["Dropdown1"],
-                city: document.forms.form["SingleLine2"],
-                street1: document.forms.form["SingleLine4"],
-                street2: document.forms.form["SingleLine5"],
-                state: document.forms.form["SingleLine6"],
-                country: document.forms.form["SingleLine1"],
-                zip: document.forms.form["SingleLine7"],
-            };
 
-            // Shipping fields
-            const shipping = {
-                addressType: document.forms.form["Dropdown4"],
-                city: document.forms.form["SingleLine9"],
-                street1: document.forms.form["SingleLine10"],
-                street2: document.forms.form["SingleLine11"],
-                state: document.forms.form["SingleLine12"],
-                country: document.forms.form["SingleLine8"],
-                zip: document.forms.form["SingleLine13"],
-            };
 
             // Shipping section
             const shippingSection = document.getElementById("shippingSection");
@@ -1091,7 +1100,7 @@
                 shipping.country.value = "";
                 shipping.zip.value = "";
 
-                // Show shipping section
+                // Showing shipping section
                 if (shippingSection) {
                     shippingSection.style.display = "block";
                 }
@@ -1103,22 +1112,22 @@
         function validateStep(stepIndex) {
             const step = steps[stepIndex];
 
-            // Get only the mandatory and validatable fields inside the current step
+            // Getting the mandatory and validatable fields inside the current step
             const allMandFields = zf_MandArray.filter(id => step.contains(document.forms.form[id]));
             const allValidFields = zf_FieldArray.filter(id => step.contains(document.forms.form[id]));
 
-            // Save the original full arrays
+            // Saves the original full arrays
             const oldMandArray = [...zf_MandArray];
             const oldFieldArray = [...zf_FieldArray];
 
-            // Temporarily set arrays to current step only
+            // Temporarily sets arrays to current step only
             zf_MandArray = allMandFields;
             zf_FieldArray = allValidFields;
 
-            // Run Zoho validations
+            
             const isValid = zf_CheckMandatory() && zf_ValidCheck();
 
-            // Restore full form validation arrays
+            
             zf_MandArray = oldMandArray;
             zf_FieldArray = oldFieldArray;
 
@@ -1139,6 +1148,10 @@
 
                 item.classList.toggle("active", i <= index);
             });
+              const benefitsBox = document.getElementById("benefits-box");
+               if (benefitsBox) {
+                benefitsBox.style.display = (index === 0) ? "block" : "none";
+                 }
         }
         // next button functionality
         document.querySelectorAll(".next").forEach(btn => {
@@ -1199,6 +1212,12 @@
             fileInput.files = dt.files;
             fileInput.dispatchEvent(new Event("change"));
         }
+
+    
+
+});
+
+
 
     </script>
 </body>
