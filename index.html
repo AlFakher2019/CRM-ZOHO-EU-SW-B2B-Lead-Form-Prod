@@ -183,7 +183,8 @@
                           <input
                             type="text"
                             name="SingleLine14"
-                            checktype="c1"
+                            checktype="c7"
+                            phoneFormat="1"
                             value=""
                             maxlength="255"
                             fieldType="1"
@@ -205,14 +206,15 @@
                     <div class="zf-tempFrmWrapper zf-large">
                       <label class="zf-labelName">
                         Business phone
-                        <em class="zf-important"> *</em>
+                        <em class="zf-important"></em>
                       </label>
                       <div class="zf-tempContDiv">
                         <span>
                           <input
                             type="text"
                             name="SingleLine15"
-                            checktype="c1"
+                            checktype="c7"
+                            phoneFormat="1"
                             value=""
                             maxlength="255"
                             fieldType="1"
@@ -1012,7 +1014,7 @@
     <script type="text/javascript">var dateAndMonthRegexFormateArray = zf_SetDateAndMonthRegexBasedOnDateFormate('dd-MMM-yyyy');
         var zf_DateRegex = new RegExp(dateAndMonthRegexFormateArray[0]);
         var zf_MonthYearRegex = new RegExp(dateAndMonthRegexFormateArray[1]);
-        var zf_MandArray = ["Name_First", "Name_Last", "Email", "SingleLine14", "SingleLine15", "SingleLine","DecisionBox2", "Dropdown", "Dropdown1", "SingleLine2", "SingleLine4", "SingleLine6", "SingleLine1", "SingleLine7", "Dropdown4", "SingleLine9", "SingleLine10", "SingleLine12", "SingleLine8", "SingleLine13", "FileUpload", "FileUpload1"];
+        var zf_MandArray = ["Name_First", "Name_Last", "Email", "SingleLine14", "SingleLine", "Dropdown", "Dropdown1", "SingleLine2", "SingleLine4", "SingleLine6", "SingleLine1", "SingleLine7", "Dropdown4", "SingleLine9", "SingleLine10", "SingleLine12", "SingleLine8", "SingleLine13", "FileUpload", "FileUpload1"];
         var zf_FieldArray = ["Name_First", "Name_Last", "Email", "SingleLine14", "SingleLine15", "SingleLine", "Dropdown", "TermsConditions", "TermsConditions1", "Dropdown1", "SingleLine2", "SingleLine4", "SingleLine6", "SingleLine1", "SingleLine3", "SingleLine5", "SingleLine7", "DecisionBox", "Dropdown4", "SingleLine9", "SingleLine10", "SingleLine12", "SingleLine8", "SingleLine11", "SingleLine13", "SingleLine16", "FileUpload", "SingleLine17", "FileUpload1"];
         var isSalesIQIntegrationEnabled = false;
         var salesIQFieldsArray = [];
@@ -1038,6 +1040,51 @@
         country: document.forms.form["SingleLine8"],
         zip: document.forms.form["SingleLine13"],
     };
+
+
+
+/// state hide
+
+        function handleStateReadonly(countryInput, stateInput, stateFieldId) {
+  const country = countryInput.value.trim().toLowerCase();
+  
+  if (country === "germany" || country === "deutschland") {
+    stateInput.readOnly = true;
+    stateInput.value = "N/A";
+    stateInput.classList.add("readonly-disabled"); // disabled style
+
+
+    const index = zf_MandArray.indexOf(stateFieldId);
+    if (index !== -1) zf_MandArray.splice(index, 1);
+  } else {
+    stateInput.readOnly = false;
+    stateInput.value = "";
+    stateInput.classList.remove("readonly-disabled");
+
+    if (!zf_MandArray.includes(stateFieldId)) {
+      zf_MandArray.push(stateFieldId);
+    }
+  }
+}
+
+// live input events
+     billing.country.addEventListener("input", () => {
+      handleStateReadonly(billing.country, billing.state, "SingleLine6");
+       });
+          shipping.country.addEventListener("input", () => {
+  handleStateReadonly(shipping.country, shipping.state, "SingleLine12");
+    });
+
+  //  on load
+   handleStateReadonly(billing.country, billing.state, "SingleLine6");
+   handleStateReadonly(shipping.country, shipping.state, "SingleLine12");
+
+
+
+
+                /// state hide end
+
+
 
     function syncShippingWithBilling() {
         if (document.getElementById("DecisionBox").checked) {
@@ -1106,6 +1153,8 @@
                 }
             }
         });
+
+
 
 
         //###validations
