@@ -1537,7 +1537,7 @@ width: 223px;
   padding: 13px 36px;
   font-weight: 600;
   text-transform: uppercase;
-  width: 84%;
+  width: 83%;
   border-radius: 40px;
   color: #fff;
   border: 0px solid;
@@ -1604,3 +1604,11 @@ form{
 .zf-tempFrmWrapper .billing-check .zf-labelName{
 	margin-left: 10px !important;
 }
+
+ input.readonly-disabled {
+    background-color: #e9ecef !important;
+    color: #6c757d !important;
+    cursor: not-allowed !important;
+    border-color: #ced4da !important;
+  }
+
