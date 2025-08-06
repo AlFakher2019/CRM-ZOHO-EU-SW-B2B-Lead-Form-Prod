@@ -6,6 +6,7 @@
     <link href="css/form.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;500;600;700&display=swap" rel="stylesheet">
     <script src="js/validation.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         .step {
             display: none;
@@ -19,11 +20,7 @@
             visibility: hidden;
         }
 
-        #step1 .next {
-
-            width: 91%;
-            margin-left: 40px;
-        }
+      
     </style>
 </head>
 
@@ -1257,7 +1254,89 @@
 
 });
 
-
+ document.querySelector("form").addEventListener("keydown", function (e) {
+    if (e.key === "Enter") {
+      const type = e.target.type;
+      // allow Enter on textarea or submit button only
+      if (type !== "textarea" && type !== "submit" && type !== "button") {
+        e.preventDefault();
+      }
+    }
+  });
 
     </script>
+     <script>
+function moveZusatzBelowStreet(streetName, zusatzName) {
+  const streetInput = document.querySelector(`input[name="${streetName}"]`);
+  const zusatzInput = document.querySelector(`input[name="${zusatzName}"]`);
+  if (!streetInput || !zusatzInput) return;
+
+  const streetWrapper = streetInput.closest(".zf-tempFrmWrapper");
+  const zusatzWrapper = zusatzInput.closest(".zf-tempFrmWrapper");
+
+  if (
+    window.innerWidth <= 468 &&
+    streetWrapper &&
+    zusatzWrapper &&
+    streetWrapper !== zusatzWrapper &&
+    zusatzWrapper.previousElementSibling !== streetWrapper
+  ) {
+    streetWrapper.insertAdjacentElement("afterend", zusatzWrapper);
+  }
+}
+
+function applyZusatzPositioning() {
+  moveZusatzBelowStreet("SingleLine4", "SingleLine5");     // Billing
+  moveZusatzBelowStreet("SingleLine10", "SingleLine11");   // Shipping
+}
+
+document.addEventListener("DOMContentLoaded", applyZusatzPositioning);
+window.addEventListener("resize", applyZusatzPositioning);
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const submitBtn = document.getElementById("submitBtn");
+  const requiredFields = [
+    "FileUpload",      // Final step file input 1
+    "FileUpload1",     // Final step file input 2
+    // Add more required fields from final step if needed
+  ];
+
+  function checkRequiredFieldsFilled() {
+    return requiredFields.every(name => {
+      const field = document.querySelector(`[name="${name}"]`);
+      if (!field) return false;
+      if (field.type === "file") {
+        return field.files.length > 0;
+      } else if (field.type === "checkbox" || field.type === "radio") {
+        return field.checked;
+      } else {
+        return field.value.trim() !== "";
+      }
+    });
+  }
+
+  function updateSubmitButtonState() {
+    if (checkRequiredFieldsFilled()) {
+      submitBtn.disabled = false;
+    } else {
+      submitBtn.disabled = true;
+    }
+  }
+
+  // Initial check
+  updateSubmitButtonState();
+
+  requiredFields.forEach(name => {
+    const field = document.querySelector(`[name="${name}"]`);
+    if (field) {
+      field.addEventListener("input", updateSubmitButtonState);
+      field.addEventListener("change", updateSubmitButtonState);
+    }
+  });
+});
+</script>
+
+
 </body>
