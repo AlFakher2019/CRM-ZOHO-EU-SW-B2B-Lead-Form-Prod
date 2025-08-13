@@ -705,7 +705,7 @@ ol, ul {
 }
 
 .zf-fmFooter {
-	
+	margin-left: 40px;
     display: flex;
     align-items: center;
     gap: 20px;
@@ -1716,6 +1716,24 @@ form{
   .zf-tempContDiv {
     box-sizing: border-box;
   }
+   .zf-nameWrapper {
+    display: flex;
+    flex-direction: column; 
+    width: 100% !important;
+  }
+
+  .zf-nameWrapper span {
+    width: 100% !important;
+    margin-left: 0 !important;
+  }
+
+  .zf-nameWrapper span label {
+    width: 100% !important;
+  }
+
+  .zf-nameWrapper input {
+    width: 100% !important;
+  }
 }
 
 @media (max-width: 468px) {
@@ -1736,4 +1754,16 @@ button:disabled,
   cursor: not-allowed;
   pointer-events: none;
   filter: grayscale(100%);
+}
+
+@media (max-width: 468px) {
+  .zf-nameWrapper {
+    display: flex;
+    flex-direction: column !important;
+    gap: 12px;
+  }
+  .zf-nameWrapper > span {
+    width: 100% !important;
+    display: block !important;
+  }
 }
