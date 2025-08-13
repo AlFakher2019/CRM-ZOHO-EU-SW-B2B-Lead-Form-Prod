@@ -705,7 +705,7 @@ ol, ul {
 }
 
 .zf-fmFooter {
-	margin-left: 40px;
+	  margin-left: 5px;
     display: flex;
     align-items: center;
     gap: 20px;
@@ -1464,7 +1464,7 @@ width: 223px;
 #progressbar #number3:before {
   font-family: "Poppins";
   content: "\33";
-  font-weight: 600;
+  font-weight: 500;
 }
 
 #progressbar #number3.active:before {
@@ -1491,7 +1491,7 @@ width: 223px;
   background: rgb(255, 255, 255);
   border-radius: 50%;
   margin: 0 auto 10px auto;
-  padding: 2px;
+
   position: relative;
   z-index: 10;
 }
