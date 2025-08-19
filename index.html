@@ -496,24 +496,13 @@
                       <em class="zf-important"> *</em>
                     </label>
                     <div class="zf-tempContDiv">
-                      <span>
-                        <input
-                          type="text"
-                          name="SingleLine1"
-                          checktype="c1"
-                          value=""
-                          maxlength="255"
-                          fieldType="1"
-                          placeholder=""
-                        />
-                      </span>
-                      <p
-                        id="SingleLine1_error"
-                        class="zf-errorMessage"
-                        style="display: none"
-                      >
-                        Please Enter Correct Details
-                      </p>
+                      <select class="zf-form-sBox" name="Dropdown2" checktype="c1">
+                        <option selected="true" value="-Select-">-Select-</option>
+                        <option value="DEU">Germany</option>
+                        <option value="AUT">Austria</option>
+                      </select>
+                      <p id="Dropdown2_error" class="zf-errorMessage" style="display:none;">
+                        Invalid value</p>
                     </div>
                     <div class="zf-clearBoth"></div>
                   </div>
@@ -758,24 +747,13 @@
                         <em class="zf-important"> *</em>
                       </label>
                       <div class="zf-tempContDiv">
-                        <span>
-                          <input
-                            type="text"
-                            name="SingleLine8"
-                            checktype="c1"
-                            value=""
-                            maxlength="255"
-                            fieldType="1"
-                            placeholder=""
-                          />
-                        </span>
-                        <p
-                          id="SingleLine8_error"
-                          class="zf-errorMessage"
-                          style="display: none"
-                        >
-                          Please Enter Correct Details
-                        </p>
+                        <select class="zf-form-sBox" name="Dropdown5" checktype="c1">
+                          <option selected="true" value="-Select-">-Select-</option>
+                          <option value="DEU">Germany</option>
+                          <option value="AUT">Austria</option>
+                        </select>
+                        <p id="Dropdown5_error" class="zf-errorMessage" style="display:none;">
+                          Invalid value</p>
                       </div>
                       <div class="zf-clearBoth"></div>
                     </div>
@@ -915,7 +893,7 @@
             <div class="zf-tempFrmWrapper">
               <label class="zf-labelName">
                 File Upload
-                <em class="zf-important">*</em>
+                <!-- <em class="zf-important">*</em> -->
               </label>
               <div class="zf-tempContDiv">
                 <input type="file" name="FileUpload" checktype="c1" />
@@ -968,7 +946,7 @@
             <div class="zf-tempFrmWrapper">
               <label class="zf-labelName">
                 File Upload
-                <em class="zf-important">*</em>
+                <!-- <em class="zf-important">*</em> -->
               </label>
               <div class="zf-tempContDiv">
                 <input type="file" name="FileUpload1" checktype="c1" />
@@ -1004,8 +982,8 @@
     <script type="text/javascript">var dateAndMonthRegexFormateArray = zf_SetDateAndMonthRegexBasedOnDateFormate('dd-MMM-yyyy');
         var zf_DateRegex = new RegExp(dateAndMonthRegexFormateArray[0]);
         var zf_MonthYearRegex = new RegExp(dateAndMonthRegexFormateArray[1]);
-        var zf_MandArray = ["Name_First", "Name_Last", "Email", "SingleLine14", "SingleLine", "Dropdown", "Dropdown1", "SingleLine2", "SingleLine4", "SingleLine6", "SingleLine1", "SingleLine7", "Dropdown4", "SingleLine9", "SingleLine10", "SingleLine12", "SingleLine8", "SingleLine13", "FileUpload", "FileUpload1","DecisionBox2"];
-        var zf_FieldArray = ["Name_First", "Name_Last", "Email", "SingleLine14", "SingleLine15", "SingleLine", "Dropdown", "TermsConditions", "TermsConditions1", "Dropdown1", "SingleLine2", "SingleLine4", "SingleLine6", "SingleLine1", "SingleLine3", "SingleLine5", "SingleLine7", "DecisionBox", "Dropdown4", "SingleLine9", "SingleLine10", "SingleLine12", "SingleLine8", "SingleLine11", "SingleLine13", "SingleLine16", "FileUpload", "SingleLine17", "FileUpload1"];
+        var zf_MandArray = ["Name_First", "Name_Last", "Email", "SingleLine14", "SingleLine", "Dropdown", "Dropdown1", "SingleLine2", "SingleLine4", "SingleLine6","Dropdown2", "SingleLine7", "Dropdown4", "SingleLine9", "SingleLine10", "SingleLine12","Dropdown5", "SingleLine13", "DecisionBox2"];
+        var zf_FieldArray = ["Name_First", "Name_Last", "Email", "SingleLine14", "SingleLine15", "SingleLine", "Dropdown", "TermsConditions", "TermsConditions1", "Dropdown1", "SingleLine2", "SingleLine4", "SingleLine6", "Dropdown2", "SingleLine3", "SingleLine5", "SingleLine7", "DecisionBox", "Dropdown4", "SingleLine9", "SingleLine10", "SingleLine12", "Dropdown5", "SingleLine11", "SingleLine13", "SingleLine16", "FileUpload", "SingleLine17", "FileUpload1"];
         var isSalesIQIntegrationEnabled = false;
         var salesIQFieldsArray = [];
 
@@ -1017,7 +995,7 @@
         street1: document.forms.form["SingleLine4"],
         street2: document.forms.form["SingleLine5"],
         state: document.forms.form["SingleLine6"],
-        country: document.forms.form["SingleLine1"],
+        country: document.forms.form["Dropdown2"],
         zip: document.forms.form["SingleLine7"],
     };
 
@@ -1027,7 +1005,7 @@
         street1: document.forms.form["SingleLine10"],
         street2: document.forms.form["SingleLine11"],
         state: document.forms.form["SingleLine12"],
-        country: document.forms.form["SingleLine8"],
+        country: document.forms.form["Dropdown5"],
         zip: document.forms.form["SingleLine13"],
     };
 
@@ -1296,7 +1274,7 @@ document.addEventListener("DOMContentLoaded", applyZusatzPositioning);
 window.addEventListener("resize", applyZusatzPositioning);
 </script>
 
-<script>
+<!-- <script>
 document.addEventListener("DOMContentLoaded", function () {
   const submitBtn = document.getElementById("submitBtn");
   const requiredFields = [
@@ -1338,7 +1316,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 });
-</script>
+</script> -->
 
 
 </body>
