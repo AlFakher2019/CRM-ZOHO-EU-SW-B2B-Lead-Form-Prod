@@ -666,7 +666,7 @@
                     <div class="zf-clearBoth"></div>
                   </div>
                   <div class="zf-tempFrmWrapper zf-large">
-                    <label class="zf-labelName"> EOID </label>
+                    <label class="zf-labelName"> FID </label>
                     <div class="zf-tempContDiv">
                       <span>
                         <input
@@ -1181,7 +1181,8 @@
               <div class="zftwoColumn zfMultiColGrid">
                 <div class="zfCol">
                   <div class="zf-tempFrmWrapper zf-large">
-                    <label class="zf-labelName"> License Number </label>
+                    <label class="zf-labelName"> License Number
+                      <em class="zf-important">*</em> </label>
                     <div class="zf-tempContDiv">
                       <span>
                         <input
@@ -1234,7 +1235,9 @@
               <div class="zftwoColumn zfMultiColGrid">
                 <div class="zfCol">
                   <div class="zf-tempFrmWrapper zf-large">
-                    <label class="zf-labelName"> License Number </label>
+                    <label class="zf-labelName"> License Number 
+                      <em class="zf-important">*</em>
+                    </label>
                     <div class="zf-tempContDiv">
                       <span>
                         <input
@@ -1264,7 +1267,7 @@
             <div class="zf-tempFrmWrapper">
               <label class="zf-labelName">
                 File Upload
-                <!-- <em class="zf-important">*</em> -->
+                <em class="zf-important">*</em>
               </label>
               <div class="zf-tempContDiv">
                 <input type="file" name="FileUpload1" checktype="c1" />
@@ -1287,6 +1290,7 @@
                 class="next"
                 name="submit"
                 id="submitBtn"
+                disabled
               >
                 Submit
               </button>
@@ -1300,7 +1304,7 @@
     <script type="text/javascript">var dateAndMonthRegexFormateArray = zf_SetDateAndMonthRegexBasedOnDateFormate('dd-MMM-yyyy');
         var zf_DateRegex = new RegExp(dateAndMonthRegexFormateArray[0]);
         var zf_MonthYearRegex = new RegExp(dateAndMonthRegexFormateArray[1]);
-        var zf_MandArray = ["Name_First", "Name_Last", "Email",  "SingleLine", "Dropdown", "Dropdown1", "SingleLine2", "SingleLine4", "Dropdown2", "SingleLine7", "Dropdown4", "SingleLine9", "SingleLine10", "Dropdown5", "SingleLine13", "DecisionBox2"];
+        var zf_MandArray = ["Name_First", "Name_Last", "Email",  "SingleLine", "Dropdown", "Dropdown1", "SingleLine2", "SingleLine4", "Dropdown2", "SingleLine7", "Dropdown4", "SingleLine9", "SingleLine10", "Dropdown5", "SingleLine13", "DecisionBox2","FileUpload1","SingleLine16","SingleLine17"];
         var zf_FieldArray = ["Name_First", "Name_Last", "Email", "SingleLine14", "SingleLine15", "SingleLine", "Dropdown", "TermsConditions", "TermsConditions1", "Dropdown1", "SingleLine2", "SingleLine4", "SingleLine6", "Dropdown2", "SingleLine3", "SingleLine5", "SingleLine7", "DecisionBox", "Dropdown4", "SingleLine9", "SingleLine10", "SingleLine12", "Dropdown5", "SingleLine11", "SingleLine13", "SingleLine16", "FileUpload", "SingleLine17", "FileUpload1"];
         var isSalesIQIntegrationEnabled = false;
         var salesIQFieldsArray = [];
@@ -1592,13 +1596,14 @@ document.addEventListener("DOMContentLoaded", applyZusatzPositioning);
 window.addEventListener("resize", applyZusatzPositioning);
 </script>
 
-<!-- <script>
+<script>
 document.addEventListener("DOMContentLoaded", function () {
   const submitBtn = document.getElementById("submitBtn");
   const requiredFields = [
-    "FileUpload",      // Final step file input 1
+        
     "FileUpload1",     // Final step file input 2
-    // Add more required fields from final step if needed
+    "SingleLine17",
+    "SingleLine16",
   ];
 
   function checkRequiredFieldsFilled() {
@@ -1634,7 +1639,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 });
-</script> -->
+</script>
 
 
 </body>
